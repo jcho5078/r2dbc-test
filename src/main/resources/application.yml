@@ -1,0 +1,30 @@
+
+spring:
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC # schema ??? webflux? ???
+    username: root
+    password: 1234
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  sql:
+    init:
+      mode: always
+
+# ?? ?? - R2DBC?? Database? ??? ??? ?? ??? ???? ????? ???? ?
+logging:
+  level:
+    dev:
+      miku:
+        r2dbc:
+          mysql:
+            client:
+              ReactorNettyClient: TRACE
